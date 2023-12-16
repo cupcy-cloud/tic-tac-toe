@@ -1,0 +1,17 @@
++ git rev-parse --short=10 HEAD
+[Pipeline] sh
++ docker build -t 620336895710.dkr.ecr.us-east-1.amazonaws.com/test-project:e30be9850d .
+ERROR: permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: 
+Get "http://%2Fvar%2Frun%2Fdocker.sock/_ping": dial unix /var/run/docker.sock: connect: permission denied
+
+
+Solution:
+------------
+
+1) Grand permission to docker.sock (Default: 660)
+    
+    --> sudo chmod 666 /var/run/docker.sock
+
+2) Grand permission to the user jenkins
+
+    --> sudo usermod -aG docker jenkins
