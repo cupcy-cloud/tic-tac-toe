@@ -14,11 +14,10 @@ spec:
     spec:
       containers:
       - name: tic-tac-toe
-        image: <<<repo name>>>
+        image: 620336895710.dkr.ecr.us-east-1.amazonaws.com/tic-tac-toe:commitID
         ports:
         - containerPort: 3000
       imagePullSecrets:
-          - name: <<<secret_name>>>
+          - name: game-secret
 
 
-        sreekanth Adari
