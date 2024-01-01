@@ -64,8 +64,8 @@ pipeline {
                     commitID = sh(returnStdout: true, script: "git rev-parse --short=10 HEAD").trim();
                     // Checkout code from git
                     git branch: 'main', credentialsId: 'git-credentials', url: 'https://github.com/cupcy-cloud/kubernetes-manifest.git'
-                    sh "git config user.name 'cupcy-cloud'"
-                    sh "git config user.email 'thiyagarajan8606@gmail.com'"
+                    sh "git config user.name '********************'"
+                    sh "git config user.email '********************'"
                     sh("sed -i 's+image: .*+image: ${REPOSITORY_URI}/tic-tac-toe:${commitID}+g' k8s-manifest/deployment.yml")
                     
                     withCredentials([gitUsernamePassword(credentialsId: 'git-credentials', gitToolName: 'Default')]) {
